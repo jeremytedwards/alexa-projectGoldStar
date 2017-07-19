@@ -1,0 +1,294 @@
+{
+  "intents": [
+    {
+      "name": "AddStars",
+      "samples": [
+        "Plus {star_count} to {earner_first}",
+        "Add {star_count} stars to {earner_first} ",
+        "Give {earner_first} {star_count} stars"
+      ],
+      "slots": [
+        {
+          "name": "star_count",
+          "type": "AMAZON.NUMBER",
+          "samples": [
+            "{star_count}",
+            "Add {star_count} stars",
+            "{star_count} stars"
+          ]
+        },
+        {
+          "name": "earner_first",
+          "type": "AMAZON.US_FIRST_NAME",
+          "samples": [
+            "{earner_first}",
+            "Give stars to {earner_first}",
+            "Give to {earner_first}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "GetEarnerStars",
+      "samples": [
+        "How many stars do I have",
+        "how many stars does {earner_first} have"
+      ],
+      "slots": [
+        {
+          "name": "earner_first",
+          "type": "AMAZON.US_FIRST_NAME",
+          "samples": [
+            "{earner_first}",
+            "Get the star count for {earner_first}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "GetEarnerTotals",
+      "samples": [
+        "What are the star totals",
+        "What is the family total",
+        "Do we have start totals"
+      ],
+      "slots": []
+    },
+    {
+      "name": "RemoveStars",
+      "samples": [
+        "Spend {star_count} of {earner_first} stars",
+        "Remove {star_count} stars from {earner_first}",
+        "Minus {star_count} to {earner_first}"
+      ],
+      "slots": [
+        {
+          "name": "star_count",
+          "type": "AMAZON.NUMBER",
+          "samples": [
+            "{star_count}",
+            "Remove {star_count}",
+            "Remove {star_count} stars"
+          ]
+        },
+        {
+          "name": "earner_first",
+          "type": "AMAZON.US_FIRST_NAME",
+          "samples": [
+            "{earner_first}",
+            "Remove stars from {earner_first}"
+          ]
+        }
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "Elicit.Intent-AddStars.IntentSlot-star_count",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "How many stars would you like to add"
+        }
+      ]
+    },
+    {
+      "id": "Confirm.Intent-AddStars.IntentSlot-star_count",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Did you say to add {star_count} stars"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-AddStars.IntentSlot-earner_first",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Who would you like to give stars to"
+        }
+      ]
+    },
+    {
+      "id": "Confirm.Intent-AddStars.IntentSlot-earner_first",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Did you say {earner_first}"
+        }
+      ]
+    },
+    {
+      "id": "Confirm.Intent-GetEarnerStars",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Do you want the star count for {earner_first}"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-GetEarnerStars.IntentSlot-earner_first",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Who would you like to get the star count for"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-RemoveStars.IntentSlot-star_count",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "How many stars would you like to remove"
+        }
+      ]
+    },
+    {
+      "id": "Confirm.Intent-RemoveStars.IntentSlot-star_count",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Are you sure you want to remove {star_count} stars"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-RemoveStars.IntentSlot-earner_first",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Who's stars would you like to remove"
+        },
+        {
+          "type": "PlainText",
+          "value": "Who would you like to remove stars from"
+        },
+        {
+          "type": "PlainText",
+          "value": "Ah oh, who's loosing star cred"
+        }
+      ]
+    },
+    {
+      "id": "Confirm.Intent-RemoveStars.IntentSlot-earner_first",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Are you sure, {earner_first} is not going to be happy"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "version": "1.0",
+    "intents": [
+      {
+        "name": "AddStars",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "star_count",
+            "type": "AMAZON.NUMBER",
+            "elicitationRequired": true,
+            "confirmationRequired": true,
+            "prompts": {
+              "elicit": "Elicit.Intent-AddStars.IntentSlot-star_count",
+              "confirm": "Confirm.Intent-AddStars.IntentSlot-star_count"
+            }
+          },
+          {
+            "name": "earner_first",
+            "type": "AMAZON.US_FIRST_NAME",
+            "elicitationRequired": true,
+            "confirmationRequired": true,
+            "prompts": {
+              "elicit": "Elicit.Intent-AddStars.IntentSlot-earner_first",
+              "confirm": "Confirm.Intent-AddStars.IntentSlot-earner_first"
+            }
+          }
+        ]
+      },
+      {
+        "name": "GetEarnerStars",
+        "confirmationRequired": true,
+        "prompts": {
+          "confirm": "Confirm.Intent-GetEarnerStars"
+        },
+        "slots": [
+          {
+            "name": "earner_first",
+            "type": "AMAZON.US_FIRST_NAME",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-GetEarnerStars.IntentSlot-earner_first"
+            }
+          }
+        ]
+      },
+      {
+        "name": "RemoveStars",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "star_count",
+            "type": "AMAZON.NUMBER",
+            "elicitationRequired": true,
+            "confirmationRequired": true,
+            "prompts": {
+              "elicit": "Elicit.Intent-RemoveStars.IntentSlot-star_count",
+              "confirm": "Confirm.Intent-RemoveStars.IntentSlot-star_count"
+            }
+          },
+          {
+            "name": "earner_first",
+            "type": "AMAZON.US_FIRST_NAME",
+            "elicitationRequired": true,
+            "confirmationRequired": true,
+            "prompts": {
+              "elicit": "Elicit.Intent-RemoveStars.IntentSlot-earner_first",
+              "confirm": "Confirm.Intent-RemoveStars.IntentSlot-earner_first"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
